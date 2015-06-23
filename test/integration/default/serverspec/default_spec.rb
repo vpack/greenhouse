@@ -11,7 +11,7 @@ end
 describe "Nginx service" do
 
   it "is listening on port 80" do
-    expect(port(80)).to be_listening
+    expect(port(81)).to be_listening
   end
 
   it "has a running service of nginx" do
