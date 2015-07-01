@@ -26,3 +26,4 @@ file '/var/www/nginx-default/index.html' do
   action :create
 end
 
+include_recipe 'greenhouse::datadog'
