@@ -8,9 +8,9 @@ version          '0.0.1'
 %w{ apt nginx datadog }.each do |cookbook|
   depends cookbook
 end
- 
+
+depends 'consul-template', '~> 0.8.0'
 depends 'consul' , '= 0.10.1'
-depends 'chef-consul-template'
 
 supports 'ubuntu'
 supports 'centos7'
