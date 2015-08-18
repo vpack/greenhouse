@@ -7,6 +7,7 @@
 
 include_recipe 'apt'
 include_recipe 'nginx'
+include_recipe "consul"
 
 user 'www-data'
  
@@ -26,7 +27,18 @@ file '/var/www/nginx-default/index.html' do
   action :create
 end
 
-node.default['datadog']['api_key'] = "5b74b9ca1c6be82cdb7dcc9f5c9d7446"
-node.default['datadog']['application_key'] = "3735348a84ac0f590fecb0cfc31f2f849726aeb9"
+consul_service_def 'greenhouse-webserver' do
+  port 80
+  tags ['http']
+  check(
+    interval: '3s',
+    http: 'http://localhost:80'
+  )
+  notifies :reload, 'service[consul]'
+end
 
-include_recipe 'datadog::dd-agent'
+
+#node.default['datadog']['api_key'] = "5b74b9ca1c6be82cdb7dcc9f5c9d7446"
+#node.default['datadog']['application_key'] = "3735348a84ac0f590fecb0cfc31f2f849726aeb9"
+#
+#include_recipe 'datadog::dd-agent'

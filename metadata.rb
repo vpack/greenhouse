@@ -5,7 +5,7 @@ license          'MIT'
 description      'Greenhouse Static Site'
 version          '0.0.1'
 
-%w{ apt nginx datadog }.each do |cookbook|
+%w{ apt nginx datadog consul }.each do |cookbook|
   depends cookbook
 end
  
