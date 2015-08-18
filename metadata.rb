@@ -10,6 +10,7 @@ version          '0.0.1'
 end
  
 depends 'consul' , '= 0.10.1'
+depends 'chef-consul-template'
 
 supports 'ubuntu'
 supports 'centos7'
