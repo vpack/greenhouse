@@ -6,3 +6,4 @@ default['consul']['datacenter'] = "aws-us-east"
 default['consul']['servers'] =  %w{10.44.215.162 10.44.211.72 10.44.212.204}
 
 default['consul']['config']['start_join'] = %w{10.44.215.162 10.44.211.72 10.44.212.204}
+
