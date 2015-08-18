@@ -3,6 +3,6 @@ source "https://supermarket.chef.io"
 cookbook 'apt'
 cookbook 'nginx'
 cookbook 'datadog'
-cookbook 'consul'
+#cookbook 'consul'
  
 metadata
