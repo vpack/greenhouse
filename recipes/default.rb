@@ -8,7 +8,7 @@
 include_recipe 'apt'
 include_recipe 'nginx'
 include_recipe "consul"
-include_recipe "chef-consul-template"
+include_recipe "consul-template"
 
 
 user 'www-data'
