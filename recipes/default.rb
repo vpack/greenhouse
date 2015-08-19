@@ -39,7 +39,7 @@ consul_service_def 'greenhouse-webserver' do
   notifies :reload, 'service[consul]'
 end
 
-file '/etc/consul-template.d/vp.ctmpl' do
+file '/etc/vp.ctmpl' do
   owner 'www-data'
   group 'www-data'
   mode '0755'
@@ -52,7 +52,7 @@ end
 
 consul_template_config 'htmlgenerator' do
   templates [{
-    source: '/etc/consul-template.d/vp.ctmpl',
+    source: '/etc/vp.ctmpl',
     destination: '/var/www/nginx-default/vp.html',
     command: 'service nginx restart'
   }]
