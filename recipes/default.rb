@@ -53,7 +53,8 @@ end
 consul_template_config 'htmlgenerator' do
   templates [{
     source: '/etc/consul-template.d/vp.ctmpl',
-    destination: '/var/www/nginx-default/vp.html'
+    destination: '/var/www/nginx-default/vp.html',
+    command: 'service nginx restart'
   }]
   notifies :reload, 'service[consul-template]', :delayed
 end
